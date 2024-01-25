@@ -12,9 +12,13 @@ public class Ex01 {
 		System.out.println("팀원4(자영) 다섯번째 커밋!");
 		System.out.println("팀원1(대길) 여섯번째 커밋!");
         System.out.println("팀원5(다은) 일곱번째 커밋!");
+<<<<<<< HEAD
         
         
         
+=======
+        System.out.println("팀원2(현빈) 여덟번째 커밋!!!!!!!");
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-18/jyTeamRepo.git
 		
 	}
 
