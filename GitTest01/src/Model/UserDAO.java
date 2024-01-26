@@ -15,7 +15,7 @@ public class UserDAO {
 	public UserDTO login(String id, String pw) {
 
 		UserDTO info = null;
-		// 커넥션자리
+		connection();
 		try {
 			String sql = "select * from TB_USER_INFO where ID = ? and PW = ? ";
 			psmt = conn.prepareStatement(sql);
@@ -45,7 +45,7 @@ public class UserDAO {
 		String pw = dto.getPw();
 		String user_nm = dto.getUser_nm();
 		int cnt = 0;
-		// 커넥션 자리
+		connection();
 		try {
 			String sql = "insert into TB_USER_INFO values(?,?,?)";
 			psmt = conn.prepareStatement(sql);
@@ -62,7 +62,7 @@ public class UserDAO {
 			close();
 		}
 		
-		return 0;
+		return cnt;
 	}
 
 	// 클로즈
