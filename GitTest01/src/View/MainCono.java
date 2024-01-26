@@ -42,8 +42,7 @@ public class MainCono {
 					System.out.println(" 환영합니다 ");
 				}
 				
-			}
-			if(choice == 2) {
+			}else if(choice == 2) {
 				System.out.println("회원 등록 화면");
 				System.out.print("ID 입력 : ");
 				String id = sc.next();
@@ -61,6 +60,9 @@ public class MainCono {
 				}else {
 					System.out.println("회원등록 실패");
 				}
+				
+			}else {
+				break;
 			}
 			
 		}
