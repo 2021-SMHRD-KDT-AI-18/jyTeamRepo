@@ -1,6 +1,7 @@
 package Model;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -80,6 +81,31 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	//connection 메소드
+	private void connection() {
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			String db_url = "project-db-campus.smhrd.com";
+			String db_id = "campus_23K_AI18_p1_1";
+			String db_pw = "smhrd1";
+
+			conn = DriverManager.getConnection(db_url, db_id, db_pw);
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	
 	
 	
 	
