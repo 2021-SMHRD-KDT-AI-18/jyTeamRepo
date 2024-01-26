@@ -38,4 +38,30 @@ public class UserDAO {
 		return info;
 	}
 
+	public int join(UserDTO dto) {
+		
+		String id = dto.getId();
+		String pw = dto.getPw();
+		String user_nm = dto.getUser_nm();
+		int cnt = 0;
+		// 커넥션 자리
+		try {
+			String sql = "insert into TB_USER_INFO values(?,?,?)";
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			psmt.setString(3, user_nm);
+			
+			cnt = psmt.executeUpdate();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			// 클로즈 자리
+		}
+		
+		return 0;
+	}
+
 }
