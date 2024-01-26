@@ -32,7 +32,7 @@ public class UserDAO {
 		}
 
 		finally {
-			// 클로즈 자리
+			close();
 		}
 
 		return info;
@@ -58,10 +58,29 @@ public class UserDAO {
 		catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
-			// 클로즈 자리
+			close();
 		}
 		
 		return 0;
 	}
 
+	// 클로즈
+	private void close() {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			if (psmt != null) {
+				psmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 }
