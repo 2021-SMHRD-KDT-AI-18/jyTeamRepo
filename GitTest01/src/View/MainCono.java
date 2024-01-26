@@ -21,9 +21,13 @@ public class MainCono {
 		// 타이틀 화면
 		
 		// 로그인 화면
+		
 		// 전역변수
+		MP3Player mp3 = new MP3Player();
 		UserDAO dao = null;
 		UserDTO dto = null;
+		SongDTO songDto = new SongDTO();
+		SongDAO songDao = new SongDAO();
 		
 		ConoController controller = new ConoController();
 		while(true) {
@@ -70,9 +74,6 @@ public class MainCono {
 		
 		
 		
-		MP3Player mp3 = new MP3Player();
-		SongDTO songDto = new SongDTO();
-		SongDAO songDao = new SongDAO();
 		
 		
 		//문제 출제
@@ -100,6 +101,7 @@ public class MainCono {
 		
 		
 		
+		sc.close();
 		
 	}
 
