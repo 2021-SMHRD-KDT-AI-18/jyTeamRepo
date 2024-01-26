@@ -3,8 +3,11 @@ package View;
 import java.util.Scanner;
 
 import Controller.ConoController;
+import Model.SongDAO;
+import Model.SongDTO;
 import Model.UserDAO;
 import Model.UserDTO;
+import javazoom.jl.player.MP3Player;
 
 public class MainCono {
 
@@ -62,6 +65,40 @@ public class MainCono {
 			
 		}
 		//
+		
+		
+		
+		MP3Player mp3 = new MP3Player();
+		SongDTO songDto = new SongDTO();
+		SongDAO songDao = new SongDAO();
+		
+		
+		//문제 출제
+		//노래재생
+		System.out.println("노래재생을 원하시면 1번을 눌러주세요(시끄러워서 임시로 만들었어요)");
+		int num1 = sc.nextInt();
+		if(num1==1) {
+		songDao.musicPlay(songDto);
+		}
+		//다시듣기(1번입력시)
+		System.out.println("[1]정답입력\t[2]힌트\t[3]다시 듣기\t[4] 포기");
+		int num2 = sc.nextInt();
+		if(num2 ==3) {
+			songDao.musicPlay(songDto);
+		}else if(num2 ==4){
+			//포기 시 다시 듣기
+			songDao.musicPlay(songDto);
+			
+			//포기 시 정답 출력
+			songDao.answerOpen(songDto);
+		}
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
