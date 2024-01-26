@@ -31,8 +31,12 @@ public class MainCono {
 		SongDAO songDao = new SongDAO();
 		int choice = 0;
 		ConoController controller = new ConoController();
+		
+		//보유 코인 변수 선언
+		int nowCoin = 0;
+		
 		while(true) {
-			System.out.println("[1] 로그인 \t[2] 회원가입 \t[3] 랭킹 보기 \t[4] 종료 하기");
+			System.out.println("[1] 로그인 \t[2] 회원가입 \t[3] 랭킹 보기 \t[4] 게임시작하기 \t[5] 종료 하기");
 			choice = sc.nextInt();
 			if(choice == 1) {
 				System.out.println("로그인 화면");
@@ -45,6 +49,10 @@ public class MainCono {
 				
 				if(info != null) {
 					System.out.println(" 환영합니다 ");
+				}else {
+					System.out.println("회원정보를 찾을 수 없습니다. 회원가입을 먼저 진행해주세요.");
+					
+					
 				}
 				
 			}else if(choice == 2) {
@@ -101,6 +109,17 @@ public class MainCono {
 		
 		
 			}else if(choice == 4) {
+				System.out.print("코인을 투입해주세요 : " );
+				int inputCoin = sc.nextInt();
+				
+				if(inputCoin == 1) {
+					nowCoin++;
+					System.out.println("현재 투입 코인 : " + nowCoin);
+				}
+						
+						
+				
+			}else if(choice == 5) {
 				break;
 			}
 		
