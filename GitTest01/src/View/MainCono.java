@@ -15,8 +15,9 @@ public class MainCono {
 		
 		Scanner sc = new Scanner(System.in);
 		// ------------------- intro ------------------
-		
 		// mp3 타이틀 노래 재생
+		
+		
 		
 		// 타이틀 화면
 		
@@ -28,11 +29,11 @@ public class MainCono {
 		UserDTO dto = null;
 		SongDTO songDto = new SongDTO();
 		SongDAO songDao = new SongDAO();
-		
+		int choice = 0;
 		ConoController controller = new ConoController();
 		while(true) {
-			System.out.println("[1] 로그인 [2] 회원가입 [3] 랭킹 보기");
-			int choice = sc.nextInt();
+			System.out.println("[1] 로그인 \t[2] 회원가입 \t[3] 랭킹 보기 \t[4] 종료 하기");
+			choice = sc.nextInt();
 			if(choice == 1) {
 				System.out.println("로그인 화면");
 				System.out.print("ID 입력 : ");
@@ -65,11 +66,12 @@ public class MainCono {
 					System.out.println("회원등록 실패");
 				}
 				
-			}else {
-				break;
-			}
+			}else if(choice == 3) {
+				
+				
 			
-		}
+			
+		
 		//
 		
 		
@@ -98,9 +100,11 @@ public class MainCono {
 		
 		
 		
+			}else if(choice == 4) {
+				break;
+			}
 		
-		
-		
+	}
 		sc.close();
 		
 	}

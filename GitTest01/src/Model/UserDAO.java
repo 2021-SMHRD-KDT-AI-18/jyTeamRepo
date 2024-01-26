@@ -88,7 +88,7 @@ public class UserDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String db_url = "project-db-campus.smhrd.com";
+			String db_url = "jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
 			String db_id = "campus_23K_AI18_p1_1";
 			String db_pw = "smhrd1";
 
