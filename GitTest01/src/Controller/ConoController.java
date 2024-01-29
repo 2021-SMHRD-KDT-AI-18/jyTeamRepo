@@ -41,8 +41,8 @@ public class ConoController {
 		songDao.soundCoinPlay();
 	}
 	
-	public ArrayList<SongDTO> answer(int abc){
-		return s_dao.answer(abc);
+	public ArrayList<SongDTO> answer(int musicNum){
+		return s_dao.answer(musicNum);
 		}
 	
 

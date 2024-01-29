@@ -242,14 +242,14 @@ public class SongDAO {
 	
 	
 	// 정답 확인
-		public ArrayList<SongDTO> answer(int abc) {
+		public ArrayList<SongDTO> answer(int musicNum) {
 			ArrayList<SongDTO> list = new ArrayList<SongDTO>();
 			
 			try {
 				connection();
 				String sql = "SELECT TITLE,SINGER FROM TB_ANSWER WHERE Q_NUM = ?";
 				psmt = conn.prepareStatement(sql);
-				psmt.setInt(1, abc); // 문제 번호가 들어가야함
+				psmt.setInt(1, musicNum); // 문제 번호가 들어가야함
 				
 				rs = psmt.executeQuery();
 				while(rs.next()) {
