@@ -11,7 +11,8 @@ public class UserDTO {
 	private String list_id;
 	private int list_score;
 	private int list_coin;
-	
+	private int list_play;
+	private int list_correct;
 	
 
 	// 기본 생성자
@@ -33,8 +34,10 @@ public class UserDTO {
 
 		
 
-	public UserDTO(String list_id, int list_score, int list_coin) {
+	public UserDTO(String list_id, int list_score, int list_coin, int list_play, int list_correct) {
 	}
+
+	
 
 	// 유저 정보 getter 메소드
 	public String getId() {
@@ -60,6 +63,12 @@ public class UserDTO {
 	public int getList_coin() {
 		return list_coin;
 	}
-	
+	public int getList_play() {
+		return list_play;
+	}
+
+	public int getList_correct() {
+		return list_correct;
+	}
 
 }

@@ -81,7 +81,9 @@ public class UserDAO {
 				String list_id = rs.getString(1);
 				int list_score = rs.getInt(2);
 				int list_coin = rs.getInt(3);
-				UserDTO dto = new UserDTO(list_id, list_score, list_coin);
+				int list_play = rs.getInt(4);
+				int list_correct = rs.getInt(5);
+				UserDTO dto = new UserDTO(list_id, list_score, list_coin,list_play,list_correct);
 				list.add(dto);
 			}
 		}catch (Exception e) {
