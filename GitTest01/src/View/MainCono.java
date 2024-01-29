@@ -127,6 +127,16 @@ public class MainCono {
 						//다시듣기(3번입력시)
 						System.out.println("[1]정답입력\t[2]힌트\t[3]다시 듣기\t[4] 포기");
 						int num2 = sc.nextInt();
+						// 임의 정답
+						String ab =  "벌써12시"; // 정답칸 으로 변경 예정
+						int abc = 1;// 1번 문제 : 나중에 문제 번호인 i 를 넣으면 해결
+						ArrayList<SongDTO> list = controller.answer(abc);
+						
+						if(list != null) {
+							if(ab.equals(list)) {
+								System.out.println("정답입니다");
+							}
+						}
 						
 						if(num2 == 1) {
 							System.out.print("첫번째 곡 정답을 입력하세요 : ");

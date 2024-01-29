@@ -8,7 +8,7 @@ import Model.UserDAO;
 import Model.UserDTO;
 
 public class ConoController {
-
+		private SongDAO s_dao = new SongDAO();
 		private  UserDAO dao = new UserDAO();
 
 	public UserDTO login(String id, String pw) {
@@ -41,7 +41,9 @@ public class ConoController {
 		songDao.soundCoinPlay();
 	}
 	
-	
+	public ArrayList<SongDTO> answer(int abc){
+		return s_dao.answer(abc);
+		}
 	
 
 }

@@ -35,6 +35,10 @@ public class SongDTO {
 	public SongDTO(String path) {
 		this.path = path;
 	}
-	
+	public SongDTO(String title, String singer) {
+
+		this.title = title;
+		this.singer = singer;
+	}
 	
 }

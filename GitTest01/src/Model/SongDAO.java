@@ -241,7 +241,31 @@ public class SongDAO {
 	}
 	
 	
-	
+	// 정답 확인
+		public ArrayList<SongDTO> answer(int abc) {
+			ArrayList<SongDTO> list = new ArrayList<SongDTO>();
+			
+			try {
+				connection();
+				String sql = "SELECT MUSIC_NM,SINGER FROM TB_ANSER WHERE Q_NUM = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, abc); // 문제 번호가 들어가야함
+				
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					String title = rs.getString(1);
+					String singer = rs.getString(2);
+					SongDTO dto = new SongDTO(title,singer);
+					list.add(dto);
+				}
+				
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			return list;
+		}
 	
 	
 	
