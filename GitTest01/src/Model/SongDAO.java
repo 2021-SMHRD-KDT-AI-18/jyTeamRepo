@@ -1,11 +1,70 @@
 package Model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 
 import javazoom.jl.player.MP3Player;
 
 public class SongDAO {
+	
+	Connection conn = null;
+	PreparedStatement psmt = null;
+	ResultSet rs = null;
+	
+	
+	// 클로즈
+		private void close() {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (psmt != null) {
+					psmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// connection 메소드
+		private void connection() {
+
+			try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+
+				String db_url = "jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
+				String db_id = "campus_23K_AI18_p1_1";
+				String db_pw = "smhrd1";
+
+				conn = DriverManager.getConnection(db_url, db_id, db_pw);
+
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	Random ran = new Random();
 	
 	// 자영 노래 재생 기능 만들기
@@ -73,6 +132,75 @@ public class SongDAO {
 	public void soundCoinPlay() {
 		SongDTO soundCoin = new SongDTO("C:\\music_v2\\Coin 1.mp3");
 		mp3.play(soundCoin.getPath());
+	}
+
+	public void update(int tempoCoin, String id, int scoreFinal) {
+		
+		int nowScoreFinal = 0;
+		
+		connection();
+		
+		// 현재 로그인한 사람의 최종 점수값 먼져 가져오기
+		String sql1 = "SELECT SCORE_MAX FROM TB_SONG WHERE ID = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql1);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				nowScoreFinal = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String sql2 = "";
+		
+		if(nowScoreFinal < scoreFinal) {
+			// 신기록 달성
+			sql2 = "UPDATE TB_SONG SET COIN_CNT = ?, SCORE_MAX = ? WHERE ID = ?";
+			
+			try {
+				psmt = conn.prepareCall(sql2);
+				psmt.setInt(1, tempoCoin);
+				psmt.setInt(2, scoreFinal);
+				psmt.setString(3, id);
+				psmt.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+		}else {
+			// 신기록 미달성
+			sql2 = "UPDATE TB_SONG SET COIN_CNT = ? WHERE ID = ?";
+			
+			try {
+				psmt = conn.prepareCall(sql2);
+				psmt.setInt(1, tempoCoin);
+				psmt.setString(2, id);
+				psmt.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	

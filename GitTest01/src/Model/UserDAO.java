@@ -56,6 +56,10 @@ public class UserDAO {
 			psmt.setString(3, user_nm);
 
 			cnt = psmt.executeUpdate();
+			
+			if(cnt > 0) {
+				insertTBSong(dto.getId());
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -63,6 +67,34 @@ public class UserDAO {
 		}
 
 		return cnt;
+	}
+
+	private void insertTBSong(String id) {
+		// TB_SONG 테이블에 신규 회원가입 한 인원 초기값 넣기
+		
+		connection();
+		
+		String sql = "INSERT INTO TB_SONG VALUES(?,?,?,?,?)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setInt(2, 0);
+			psmt.setInt(3, 0);
+			psmt.setInt(4, 0);
+			psmt.setInt(5, 0);
+			psmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		
+		
 	}
 
 	// 랭킹

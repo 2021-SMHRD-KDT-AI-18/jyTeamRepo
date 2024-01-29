@@ -36,6 +36,14 @@ public class MainCono {
 		//보유 코인 변수 선언
 		int nowCoin = 0;
 		
+		UserDTO info  = null;
+		
+		
+		
+		
+		int tempoCoin = 0; // 최종끝날때 꼭 이 변수에다가 남은 코인값을 넣어주세요
+		int ScoreFinal = 0; // 최종끝날때 꼭 이 변수에다가 최종 점수를 넣어주세요
+		
 		while(true) {
 			System.out.println("[1] 게임시작 \t[2] 랭킹 보기 \t[3] 종료 하기");
 			choice = sc.nextInt();
@@ -58,7 +66,7 @@ public class MainCono {
 					System.out.print("PW 입력 :");
 					String pw = sc.next();
 					
-					UserDTO info = controller.login(id,pw);
+					 info = controller.login(id,pw);
 				
 
 				
@@ -136,22 +144,6 @@ public class MainCono {
 							controller.answerOpen(songDto);
 						}
 						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-
-					
-
-					
 				}else { //로그인 실패
 					System.out.println("회원정보를 찾을 수 없습니다. 회원가입을 먼저 진행해주세요.");
 					
@@ -210,6 +202,14 @@ public class MainCono {
 		
 	}
 		sc.close();
+		
+		
+		
+		
+		if(info != null) {
+			songDao.update(tempoCoin, info.getId(), ScoreFinal);
+		}
+		
 		
 	}
 }
