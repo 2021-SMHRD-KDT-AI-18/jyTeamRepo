@@ -247,7 +247,7 @@ public class SongDAO {
 			
 			try {
 				connection();
-				String sql = "SELECT MUSIC_NM,SINGER FROM TB_ANSER WHERE Q_NUM = ?";
+				String sql = "SELECT TITLE,SINGER FROM TB_ANSWER WHERE Q_NUM = ?";
 				psmt = conn.prepareStatement(sql);
 				psmt.setInt(1, abc); // 문제 번호가 들어가야함
 				
