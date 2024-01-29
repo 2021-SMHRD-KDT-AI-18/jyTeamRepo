@@ -1,5 +1,6 @@
 package View;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Controller.ConoController;
@@ -75,12 +76,18 @@ public class MainCono {
 				}
 				
 			}else if(choice == 3) {
+				System.out.println("===== 랭킹 보기 =====");
+				ArrayList<UserDTO> list = controller.userlist();
 				
-				
+				for(int i = 0; i < list.size(); i++) {
+					System.out.println(list.get(i).getId() + "\t");
+					System.out.println(list.get(i).getList_score() + "\t");
+					System.out.println(list.get(i).getList_coin() + "\t");
+				}
+			}	
 			
 			
 		
-		//
 		
 		
 		
@@ -108,7 +115,7 @@ public class MainCono {
 		
 		
 		
-			}else if(choice == 4) {
+			else if(choice == 4) {
 				System.out.print("코인을 투입해주세요 : " );
 				int inputCoin = sc.nextInt();
 				

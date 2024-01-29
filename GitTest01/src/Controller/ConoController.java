@@ -1,5 +1,7 @@
 package Controller;
 
+import java.util.ArrayList;
+
 import Model.UserDAO;
 import Model.UserDTO;
 
@@ -15,5 +17,8 @@ public class ConoController {
 		return dao.join(dto);
 	}
 
+	public ArrayList<UserDTO> userlist(){
+		return dao.userlist();
+	}
 
 }
