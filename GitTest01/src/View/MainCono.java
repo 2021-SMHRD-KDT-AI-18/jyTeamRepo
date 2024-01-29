@@ -47,11 +47,11 @@ public class MainCono {
 			//1번 게임 시작 - 로그인 
 			
 
-			int choiceLogin = sc.nextInt();
+			choice = sc.nextInt();
 			
 			
 			
-			if(choiceLogin == 1) {
+			if(choice == 1) {
 				System.out.println("로그인 화면");
 				System.out.print("ID 입력 : ");
 				String id = sc.next();
@@ -99,17 +99,13 @@ public class MainCono {
 					}
 
 					
-					
-					
-					
-					
 				}else {
 					System.out.println("회원정보를 찾을 수 없습니다. 회원가입을 먼저 진행해주세요.");
 					
 					
 				}
 				
-			}else if(choiceLogin == 2) {
+			}else if(choice == 2) {
 				System.out.println("회원 등록 화면");
 				System.out.print("ID 입력 : ");
 				String id = sc.next();
