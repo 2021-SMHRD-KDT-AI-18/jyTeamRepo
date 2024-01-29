@@ -105,22 +105,36 @@ public class MainCono {
 						//노래재생
 						System.out.println("노래재생을 원하시면 start를 입력해주세요");
 						String start = sc.next();
-						if(start.equals("start")) {
-						songDao.musicPlay(songDto);
-						}
-						//다시듣기(1번입력시)
+							
+							if(start.equals("start")) {
+								controller.musicPlay(songDto);
+								
+							}
+						//다시듣기(3번입력시)
 						System.out.println("[1]정답입력\t[2]힌트\t[3]다시 듣기\t[4] 포기");
 						int num2 = sc.nextInt();
-						if(num2 ==3) {
-							songDao.musicPlay(songDto);
+						
+						if(num2 == 1) {
+							System.out.print("첫번째 곡 정답을 입력하세요 : ");
+							String anwer1 = sc.next();
+							System.out.print("두번째 곡 정답을 입력하세요 : ");
+							String anwer2 = sc.next();
+							System.out.print("세번째 곡 정답을 입력하세요 : ");
+							String anwer3 = sc.next();
+							System.out.print("네번째 곡 정답을 입력하세요 : ");
+							String anwer4 = sc.next();
+							
+						}else if ( num2==2) {
+							System.out.println("힌트는~");
+						}
+						else if(num2 == 3) {
+							controller.musicPlay(songDto);
 						}else if(num2 ==4){
 							//포기 시 다시 듣기
-							songDao.musicPlay(songDto);
-							
+							controller.musicPlay(songDto);
 							//포기 시 정답 출력
-							songDao.answerOpen(songDto);
+							controller.answerOpen(songDto);
 						}
-						
 						
 						
 						

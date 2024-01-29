@@ -2,6 +2,8 @@ package Controller;
 
 import java.util.ArrayList;
 
+import Model.SongDAO;
+import Model.SongDTO;
 import Model.UserDAO;
 import Model.UserDTO;
 
@@ -20,5 +22,26 @@ public class ConoController {
 	public ArrayList<UserDTO> userlist(){
 		return dao.userlist();
 	}
+	
+	
+	//노래재생 
+	SongDAO songDao = new SongDAO();
+	public void  musicPlay(SongDTO songDto) {
+		
+		songDao.musicPlay(songDto);
+	}
+	
+	//문제 포기 시 정답 출력 메소드
+	public void answerOpen(SongDTO songDto) {
+		songDao.answerOpen(songDto);
+	}
+	
+	//효과음재생
+	public void soundCoinPlay() {
+		songDao.soundCoinPlay();
+	}
+	
+	
+	
 
 }
