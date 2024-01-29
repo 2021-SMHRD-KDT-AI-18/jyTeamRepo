@@ -30,4 +30,11 @@ public class SongDTO {
 	public SongDTO () {
 		
 	}
+	
+	// 효과음 생성자 - 매개변수 1개(path)
+	public SongDTO(String path) {
+		this.path = path;
+	}
+	
+	
 }

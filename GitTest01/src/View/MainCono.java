@@ -37,9 +37,21 @@ public class MainCono {
 		int nowCoin = 0;
 		
 		while(true) {
-			System.out.println("[1] 로그인 \t[2] 회원가입 \t[3] 랭킹 보기 \t[4] 게임시작하기 \t[5] 종료 하기");
+			System.out.println("[1] 게임시작 \t[3] 랭킹 보기 \t[4] 게임시작하기 \t[5] 종료 하기");
 			choice = sc.nextInt();
+			
 			if(choice == 1) {
+			
+			System.out.println("[1] 로그인 \t[2] 회원가입");
+			
+			//1번 게임 시작 - 로그인 
+			
+
+			int choiceLogin = sc.nextInt();
+			
+			
+			
+			if(choiceLogin == 1) {
 				System.out.println("로그인 화면");
 				System.out.print("ID 입력 : ");
 				String id = sc.next();
@@ -50,13 +62,54 @@ public class MainCono {
 				
 				if(info != null) {
 					System.out.println(" 환영합니다 ");
+					
+					
+					
+					//로그인 성공 시 코인 투입화면
+					while(true) {
+						System.out.print("코인을 투입해주세요(코인투입 : 1,게임시작 : 0)  : " );
+						int inputCoin;
+						inputCoin = sc.nextInt();
+						if(inputCoin == 1 && nowCoin<=10) {
+							nowCoin++;
+							//동전 효과음
+							songDao.soundCoinPlay();
+							System.out.println("현재 투입 코인 : " + nowCoin);
+						}else if(inputCoin == 1 && nowCoin == 10) {
+							System.out.println("게임을 시작합니다.");
+							break;
+						}else if (inputCoin == 0 && nowCoin <= 10 && nowCoin >= 1){
+							System.out.println("게임을 시작합니다.");
+							break;
+						}else if(inputCoin == 0 && nowCoin == 0 ) {
+							System.out.println("코인을 투입해주세요.(현재보유코인 : 0)");
+						}
+						else {
+							System.out.println("올바른 코인을 투입해주세요(1 또는 0 입력)");
+						}
+						
+						
+						// 코인 입력 화면 벗어나기
+						if(nowCoin == 10) {
+							System.out.println("게임을 시작합니다.(최대 코인 10개 투입)");
+							break;
+						}
+						
+
+					}
+
+					
+					
+					
+					
+					
 				}else {
 					System.out.println("회원정보를 찾을 수 없습니다. 회원가입을 먼저 진행해주세요.");
 					
 					
 				}
 				
-			}else if(choice == 2) {
+			}else if(choiceLogin == 2) {
 				System.out.println("회원 등록 화면");
 				System.out.print("ID 입력 : ");
 				String id = sc.next();
@@ -71,11 +124,18 @@ public class MainCono {
 				
 				if(cnt > 0) {
 					System.out.println("회원등록 성공");
+					
+					
+					
 				}else {
 					System.out.println("회원등록 실패");
 				}
 				
-			}else if(choice == 3) {
+			}
+			
+			}
+				
+			else if(choice == 3) {
 				System.out.println("===== 랭킹 보기 =====");
 				ArrayList<UserDTO> list = controller.userlist();
 				
