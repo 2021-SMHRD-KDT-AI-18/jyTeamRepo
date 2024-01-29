@@ -86,7 +86,8 @@ public class UserDAO {
 				UserDTO dto = new UserDTO(list_id, list_score, list_coin,list_play,list_correct);
 				list.add(dto);
 			}
-		}catch (Exception e) {
+		}catch (SQLException e) {
+			e.printStackTrace();
 		}finally {
 			close();
 		}

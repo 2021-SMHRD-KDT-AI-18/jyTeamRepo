@@ -50,7 +50,7 @@ public class MainCono {
 				
 				if(info != null) {
 					System.out.println(" 환영합니다 ");
-					// 이부분에 문제 출제 넣어야함
+					
 				}else {
 					System.out.println("회원정보를 찾을 수 없습니다. 회원가입을 먼저 진행해주세요.");
 					
@@ -81,14 +81,15 @@ public class MainCono {
 				ArrayList<UserDTO> list = controller.userlist();
 				
 				for(int i = 0; i < list.size(); i++) {
-					System.out.print(list.get(i).getId() + "\t");
-					System.out.print(list.get(i).getList_score() + "\t");
-					System.out.print(list.get(i).getList_coin() + "\t");
-					double play = list.get(i).getList_play();
-					double correct = list.get(i).getList_correct();
-					double result = correct/play*100;
-					System.out.printf("%.2f",result);
-					System.out.print("%");
+					System.out.print(list.get(i).getList_id() + "\t");
+					System.out.print(list.get(i).getList_score() + "\t  ");
+					System.out.print(list.get(i).getList_coin() + "\t  ");
+					double play = (double)list.get(i).getList_play();
+					double correct = (double)list.get(i).getList_correct();
+					double result = (double)correct/play*100;
+					System.out.print(result);
+					System.out.println("%");
+					
 				}
 			}	
 			

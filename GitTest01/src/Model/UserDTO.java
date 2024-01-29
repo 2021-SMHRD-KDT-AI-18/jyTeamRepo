@@ -35,6 +35,11 @@ public class UserDTO {
 		
 
 	public UserDTO(String list_id, int list_score, int list_coin, int list_play, int list_correct) {
+		this.list_id = list_id;
+		this.list_score = list_score;
+		this.list_coin = list_coin;
+		this.list_play = list_play;
+		this.list_correct = list_correct;
 	}
 
 	
@@ -70,5 +75,6 @@ public class UserDTO {
 	public int getList_correct() {
 		return list_correct;
 	}
+
 
 }
