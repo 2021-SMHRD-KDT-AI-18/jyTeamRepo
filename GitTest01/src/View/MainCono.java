@@ -279,14 +279,16 @@ public class MainCono {
 				+ " !!");
 	}else if (choice == 3) { // 게임종료
 			break;
-	
+			
 		}
-		sc.close();
+		
 
 		if (info != null) {
 			songDao.update(tempoCoin, info.getId(), ScoreFinal);
 				}
 
 	}
-}
+		sc.close();
+	}
+	
 }
