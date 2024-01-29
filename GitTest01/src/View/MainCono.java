@@ -60,11 +60,14 @@ public class MainCono {
 					
 					UserDTO info = controller.login(id,pw);
 				
+
 				
 				if(info != null) {
 					System.out.println(" 환영합니다 ");
 					
 				}else {
+
+
 					if(info != null) {
 						System.out.println(" 환영합니다 ");
 					
@@ -168,7 +171,11 @@ public class MainCono {
 				
 			}
 			
+<<<<<<< HEAD
 			
+=======
+			}
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-18/jyTeamRepo.git
 				
 			else if(choice == 2) { //랭킹보기
 				System.out.println("===== 랭킹 보기 =====");

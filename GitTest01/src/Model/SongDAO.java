@@ -67,4 +67,13 @@ public class SongDAO {
 		System.out.println("포기하시다니 아쉽군요~! 정답은 " + list.get(n).getSinger() + "의 " + list.get(n).getTitle() +  " 이었습니다~!");
 	}
 	
+	
+	//COIN 효과음 재생
+	//soundCoinPlay 메소드
+	public void soundCoinPlay() {
+		SongDTO soundCoin = new SongDTO("C:\\music_v2\\Coin 1.mp3");
+		mp3.play(soundCoin.getPath());
+	}
+	
+	
 }
