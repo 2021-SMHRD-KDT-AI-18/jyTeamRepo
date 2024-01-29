@@ -17,7 +17,7 @@ public class SongDAO {
 	ResultSet rs = null;
 	
 	
-	// 클로즈
+	// close
 		private void close() {
 			try {
 				if (rs != null) {
@@ -202,6 +202,48 @@ public class SongDAO {
 		
 		
 	}
+	
+	
+	
+	
+	// 보유 coin 가져오기 (자영 select 메서드 만드는 중)
+	public int exist(String id) {
+		// TODO Auto-generated method stub
+			
+		int existingCoin = 0;
+			connection();
+			String sql = "SELECT COIN_CNT FROM TB_SONG WHERE ID =?";
+			
+			
+			
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, id);
+				
+			
+				rs = psmt.executeQuery();
+				
+				if (rs.next()) {
+					existingCoin = rs.getInt(1);
+					
+				}
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+		
+		return existingCoin;
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 }

@@ -78,35 +78,41 @@ public class MainCono {
 					
 					
 						//로그인 성공 시 코인 투입 화면
-						while(true) {
-							System.out.print("코인을 투입해주세요(코인투입 : 1,게임시작 : 0)  : " );
-							int inputCoin;
-							inputCoin = sc.nextInt();
-							if(inputCoin == 1 && nowCoin<=10) {
-								nowCoin++;
-								//동전 효과음
-								songDao.soundCoinPlay();
-								System.out.println("현재 투입 코인 : " + nowCoin);
-							}else if(inputCoin == 1 && nowCoin == 10) {
-								System.out.println("게임을 시작합니다.");
-								break;
-							}else if (inputCoin == 0 && nowCoin <= 10 && nowCoin >= 1){
-								System.out.println("게임을 시작합니다.");
-								break;
-							}else if(inputCoin == 0 && nowCoin == 0 ) {
-								System.out.println("코인을 투입해주세요.(현재보유코인 : 0)");
-							}
-							else {
-								System.out.println("올바른 코인을 투입해주세요(1 또는 0 입력)");
-							}
-							
-							
-							// 코인 입력 화면 벗어나기
-							if(nowCoin == 10) {
-								System.out.println("게임을 시작합니다.(최대 코인 10개 투입)");
-								break;
-							}
+						//기존 보유 코인(DB에서 가져오기)
+						
+						int existingCoin = songDao.exist(info.getId());
+						System.out.println("기존 보유 코인 : " + existingCoin + "개");
+						int coin = existingCoin + nowCoin;
+						
+						
+						while(true) {System.out.print("코인을 투입해주세요(코인투입 : 1,게임시작 : 0)  : " );
+						int inputCoin;
+						inputCoin = sc.nextInt();
+						if(inputCoin == 1 && coin <= 10) {
+							coin++;
+							//동전 효과음
+							songDao.soundCoinPlay();
+							System.out.println("현재 투입 코인 : " + coin + "개");
+						}else if(inputCoin == 1 && coin == 10) {
+							System.out.println("게임을 시작합니다.");
+							break;
+						}else if (inputCoin == 0 && coin <= 10 && coin >= 1){
+							System.out.println("게임을 시작합니다.");
+							break;
+						}else if(inputCoin == 0 && coin == 0 ) {
+							System.out.println("코인을 투입해주세요.(현재보유코인 : 0)");
 						}
+						else {
+							System.out.println("올바른 코인을 투입해주세요(1 또는 0 입력)");
+						}
+						
+						
+						// 코인 입력 화면 벗어나기
+						if(coin == 10) {
+							System.out.println("게임을 시작합니다.(최대 코인 10개 투입)");
+							break;
+						}
+					}
 						
 						
 						//문제 출제
