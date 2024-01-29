@@ -62,10 +62,7 @@ public class MainCono {
 				
 
 				
-				if(info != null) {
-					System.out.println(" 환영합니다 ");
-					
-				}else {
+				
 
 
 					if(info != null) {
@@ -145,8 +142,8 @@ public class MainCono {
 					System.out.println("회원정보를 찾을 수 없습니다. 회원가입을 먼저 진행해주세요.");
 					
 				}	
-				}
-				}
+				
+				
 			}else if(choice == 2) {
 				System.out.println("회원 등록 화면");
 				System.out.print("ID 입력 : ");
@@ -168,15 +165,9 @@ public class MainCono {
 				}else {
 					System.out.println("회원등록 실패");
 				}
-				
+			}
 			}
 			
-<<<<<<< HEAD
-			
-=======
-			}
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-18/jyTeamRepo.git
-				
 			else if(choice == 2) { //랭킹보기
 				System.out.println("===== 랭킹 보기 =====");
 				ArrayList<UserDTO> list = controller.userlist();
