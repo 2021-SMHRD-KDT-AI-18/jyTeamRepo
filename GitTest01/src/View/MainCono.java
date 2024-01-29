@@ -80,9 +80,10 @@ public class MainCono {
 				ArrayList<UserDTO> list = controller.userlist();
 				
 				for(int i = 0; i < list.size(); i++) {
-					System.out.println(list.get(i).getId() + "\t");
-					System.out.println(list.get(i).getList_score() + "\t");
-					System.out.println(list.get(i).getList_coin() + "\t");
+					System.out.print(list.get(i).getId() + "\t");
+					System.out.print(list.get(i).getList_score() + "\t");
+					System.out.print(list.get(i).getList_coin() + "\t");
+					// 정답률 넣을 자리 아직 변수 못넣음
 				}
 			}	
 			

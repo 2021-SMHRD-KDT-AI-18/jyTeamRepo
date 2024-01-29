@@ -76,7 +76,7 @@ public class UserDAO {
 			psmt = conn.prepareStatement(sql);
 			
 			rs = psmt.executeQuery();
-			System.out.println("ID\t최고점수\t코인 개수\t정답률\t ");
+			System.out.println("ID\t최고점수\t  코인수\t  정답률\t ");
 			while(rs.next() != false) {
 				String list_id = rs.getString(1);
 				int list_score = rs.getInt(2);
