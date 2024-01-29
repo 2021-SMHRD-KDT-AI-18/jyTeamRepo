@@ -27,7 +27,7 @@ public class UserDAO {
 			if (rs.next()) {
 				String login_id = rs.getString(1);
 				String login_pw = rs.getString(2);
-				info = new UserDTO(login_id, pw, login_pw);
+				info = new UserDTO(login_id, login_pw);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
