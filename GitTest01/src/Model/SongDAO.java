@@ -75,16 +75,16 @@ public class SongDAO {
 	
 	//랜덤 곡 10개 추가
 	// 노래재생 추가
-	SongDTO m1 = new SongDTO("Anne Marie", "2002",  "C:\\music_v2\\Anne Marie - 2002.mp3");
-	SongDTO m2 = new SongDTO("Billie Eilish", " bad guy","C:\\music_v2\\Billie Eilish - bad guy.mp3");
-	SongDTO m3 = new SongDTO("Carmen Twillie, Lebo M.", " Circle of Life", "C:\\music_v2\\Carmen Twillie, Lebo M. - Circle of Life.mp3");
-	SongDTO m4 = new SongDTO("CHUNG HA", " 벌써 12시","C:\\music_v2\\CHUNG HA - 벌써 12시.mp3");
-	SongDTO m5 = new SongDTO("Idina Menzel", "Let It Go", "C:\\music_v2\\Idina Menzel - Let It Go.mp3");
-	SongDTO m6 = new SongDTO("Itzy", "Dalla Dalla",  "C:\\music_v2\\Itzy - Dalla Dalla.mp3");
-	SongDTO m7 = new SongDTO("JENNIE", "SOLO", "C:\\music_v2\\JENNIE - SOLO.mp3");
-	SongDTO m8 = new SongDTO("Mena Massoud, Naomi Scott", "A Whole New World",  "C:\\music_v2\\Mena Massoud, Naomi Scott - A Whole New World.mp3");
-	SongDTO m9 = new SongDTO("Rain", "깡", "C:\\music_v2\\Rain - 깡.mp3");
-	SongDTO m10 = new SongDTO("SHINee", "Ring Ding Dong",  "C:\\music_v2\\SHINee - Ring Ding Dong.mp3");
+	SongDTO m1 = new SongDTO("Anne Marie", "2002",  "C:\\music_v2\\아이유 블루밍, 청하 GottaGo,BTS ON,마마무 힙-[AudioTrimmer.com].mp3");
+	SongDTO m2 = new SongDTO("Billie Eilish", " bad guy","C:\\아이유 에잇, WJSN As You Wish, GFRIEND Crosstoads, (G)I-DLE LION-[AudioTrimmer.com].mp3");
+	SongDTO m3 = new SongDTO("Carmen Twillie, Lebo M.", " Circle of Life", "C:\\music_v2\\트와이스 FANCY, f(x)4 Walls, SUNMI Siren, BLACKPINK AS IF IT'S YOUA LAST-[AudioTrimmer.com].mp3");
+	SongDTO m4 = new SongDTO("CHUNG HA", " 벌써 12시","C:\\music_v2\\헤이즈 헤픈우연, 악뮤 낙하 , 에스파 넥스트 레벨-[AudioTrimmer.com].mp3");
+	SongDTO m5 = new SongDTO("Idina Menzel", "Let It Go", "C:\\music_v2\\슈퍼주니어 쏘리쏘리, 샤이니 링딩동, 원더걸스 노 바디, 에이핑크 파이브.mp3");
+	SongDTO m6 = new SongDTO("Itzy", "Dalla Dalla",  "C:\\music_v2\\청하 롤러코스터, 트와이스 하트 셰이커, 방탄소년단 DNA.mp3");
+	SongDTO m7 = new SongDTO("JENNIE", "SOLO", "C:\\music_v2\\래드벨벳 배드보이, 모모랜드 뿜뿜, 아이콘 사랑을 했다.mp3");
+	SongDTO m8 = new SongDTO("Mena Massoud, Naomi Scott", "A Whole New World",  "C:\\music_v2\\MC몽 인기, 볼빨간사춘기 워커홀릭, 있지 달라달라, 태연 그대라는 시.mp3");
+	SongDTO m9 = new SongDTO("Rain", "깡", "C:\\music_v2\\첸 사월이 지나면 헤어져요,  트와이스 Feel Special ,  위너 아예, BTS 작은 것들을 위한 시.mp3");
+	SongDTO m10 = new SongDTO("SHINee", "Ring Ding Dong",  "C:\\music_v2\\청하 스내핑, 있지 ICY, 아이즈원 비올레타, 마크툽 오늘도 빛나는 너에게.mp3");
 	
 	//노래(m1~m10) 목록 ->가변배열로 만들기
 	ArrayList<SongDTO> list = new ArrayList<SongDTO>();
@@ -109,21 +109,21 @@ public class SongDAO {
 	
 	
 	//10개 곡 중 랜덤번호 뽑기
-	int n = ran.nextInt(10);
+	
 	
 	// 매개변수 SongDTO 타입(제목, 가수, 경로주소) 넣으면 노래재생 되는 메소드
-	public void musicPlay(SongDTO songDto) {
+	public void musicPlay(int qwe) {
 		
 		//10개 중 랜덤으로 재생 
 		//10개 곡 중 랜덤번호 뽑기
-		mp3.play(list.get(n).getPath());
+		mp3.play(list.get(qwe).getPath());
 		
 
 	}
 	
 	//포기 시 정답 출력 메소드
-	public void answerOpen(SongDTO songDto) {
-		System.out.println("포기하시다니 아쉽군요~! 정답은 " + list.get(n).getSinger() + "의 " + list.get(n).getTitle() +  " 이었습니다~!");
+	public void answerOpen(int qwe) {
+		System.out.println("포기하시다니 아쉽군요~! 정답은 " + list.get(qwe).getSinger() + "의 " + list.get(qwe).getTitle() +  " 이었습니다~!");
 	}
 	
 	

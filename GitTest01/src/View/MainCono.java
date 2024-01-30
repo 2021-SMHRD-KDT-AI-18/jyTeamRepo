@@ -121,13 +121,7 @@ public class MainCono {
 
 						// 문제 출제
 						// 노래재생
-						System.out.println("노래재생을 원하시면 start를 입력해주세요");
-						String start = sc.next();
-
-						if (start.equals("start")) {
-							controller.musicPlay(songDto);
-
-						}
+						
 
 						int[] array = new int[coin];
 
@@ -140,17 +134,22 @@ public class MainCono {
 							}
 						}
 						for (int i = 0; i < coin; i++) { // 문제 재생
+							System.out.println(i+1 + "번 문제 입니다 여러개의 노래가 섞여 있습니다 잘듣고 노래 제목을 입력해주세요."); // 노래 제목 하나만 입력
+							controller.musicPlay(array[i]); // 문제 재생 리스트
+							
+							int musicNum = array[i] + 1;
+							ArrayList<SongDTO> list = controller.answer(musicNum);
 							System.out.print("정답을 입력하세요 : ");
 							String answer = sc.next();
-							int musicNum = i + 1;
-							ArrayList<SongDTO> list = controller.answer(musicNum);
 							int cnt = 0;
 							if (list != null) { // 문제 정답 비교
 								for (int j = 0; j < list.size(); j++) {
 									if (answer.equals(list.get(j).getTitle())) {
 										list.remove(answer);
-										i--;
 										// 정답 문구
+										System.out.println("정답입니다~~~!!!");
+									}else {
+										System.out.println("땡");
 									}
 
 								}
@@ -160,13 +159,13 @@ public class MainCono {
 							System.out.println("[1]다시듣기\t[2]포기\t");
 							int num2 = sc.nextInt();
 							if (num2 == 1) {
-								controller.musicPlay(songDto);
+								controller.musicPlay(array[i]);
 								i--;
 							} else if (num2 == 2) {
 								// 포기 시 다시 듣기
-								controller.musicPlay(songDto);
+								controller.musicPlay(array[i]);
 								// 포기 시 정답 출력
-								controller.answerOpen(songDto);
+								controller.answerOpen(array[i]);
 							}
 
 						} // for문 중괄호

@@ -26,14 +26,14 @@ public class ConoController {
 	
 	//노래재생 
 	SongDAO songDao = new SongDAO();
-	public void  musicPlay(SongDTO songDto) {
+	public void  musicPlay(int qwe) {
 		
-		songDao.musicPlay(songDto);
+		songDao.musicPlay(qwe);
 	}
 	
 	//문제 포기 시 정답 출력 메소드
-	public void answerOpen(SongDTO songDto) {
-		songDao.answerOpen(songDto);
+	public void answerOpen(int qwe) {
+		songDao.answerOpen(qwe);
 	}
 	
 	//효과음재생
