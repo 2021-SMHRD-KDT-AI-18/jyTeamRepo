@@ -76,7 +76,7 @@ public class SongDAO {
 	//랜덤 곡 10개 추가
 	// 노래재생 추가
 	SongDTO m1 = new SongDTO("Anne Marie", "2002",  "C:\\music_v2\\아이유 블루밍, 청하 GottaGo,BTS ON,마마무 힙-[AudioTrimmer.com].mp3");
-	SongDTO m2 = new SongDTO("Billie Eilish", " bad guy","C:\\아이유 에잇, WJSN As You Wish, GFRIEND Crosstoads, (G)I-DLE LION-[AudioTrimmer.com].mp3");
+	SongDTO m2 = new SongDTO("Billie Eilish", " bad guy","C:\\music_v2\\아이유 에잇, WJSN As You Wish, GFRIEND Crosstoads,I-DLE LION.mp3");
 	SongDTO m3 = new SongDTO("Carmen Twillie, Lebo M.", " Circle of Life", "C:\\music_v2\\트와이스 FANCY, f(x)4 Walls, SUNMI Siren, BLACKPINK AS IF IT'S YOUA LAST-[AudioTrimmer.com].mp3");
 	SongDTO m4 = new SongDTO("CHUNG HA", " 벌써 12시","C:\\music_v2\\헤이즈 헤픈우연, 악뮤 낙하 , 에스파 넥스트 레벨-[AudioTrimmer.com].mp3");
 	SongDTO m5 = new SongDTO("Idina Menzel", "Let It Go", "C:\\music_v2\\슈퍼주니어 쏘리쏘리, 샤이니 링딩동, 원더걸스 노 바디, 에이핑크 파이브.mp3");
